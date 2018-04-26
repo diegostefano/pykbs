@@ -1,4 +1,4 @@
-# Generated from /home/diego/Dropbox/pyaac/antlr4-runtime/CAA.g4 by ANTLR 4.7.1
+# Generated from /home/diego/Dropbox/pykbs/antlr4-runtime/CAA.g4 by ANTLR 4.7.1
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .CAAParser import CAAParser
@@ -77,6 +77,24 @@ class CAAListener(ParseTreeListener):
 
     # Exit a parse tree produced by CAAParser#rhsconjunction.
     def exitRhsconjunction(self, ctx:CAAParser.RhsconjunctionContext):
+        pass
+
+
+    # Enter a parse tree produced by CAAParser#filters.
+    def enterFilters(self, ctx:CAAParser.FiltersContext):
+        pass
+
+    # Exit a parse tree produced by CAAParser#filters.
+    def exitFilters(self, ctx:CAAParser.FiltersContext):
+        pass
+
+
+    # Enter a parse tree produced by CAAParser#comparison.
+    def enterComparison(self, ctx:CAAParser.ComparisonContext):
+        pass
+
+    # Exit a parse tree produced by CAAParser#comparison.
+    def exitComparison(self, ctx:CAAParser.ComparisonContext):
         pass
 
 

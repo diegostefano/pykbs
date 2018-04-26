@@ -11,6 +11,7 @@ actions         :   OUTERSEP?
 
 action			:	'(' OUTERSEP? LABEL
                         OUTERSEP? conjunction
+                        OUTERSEP? filters
                         OUTERSEP? consequence
                         OUTERSEP? ')' ;
 
@@ -31,6 +32,16 @@ messagefrom     :   '(from' INNERSEP ('reactive' | 'instinctive' | 'cognitive') 
 messagebody     :   '(body' INNERSEP rhsconjunction+ OUTERSEP? ')' ;
 
 rhsconjunction  :   '~'? conjunction ;
+
+filters         :   '(' OUTERSEP? comparison
+                        ((OUTERSEP|INNERSEP)? comparison)*
+                        OUTERSEP? ')' ;
+
+comparison          :   'filter('
+                        INNERSEP? symbol
+                        INNERSEP ('==' | '!=')
+                        INNERSEP symbol
+                        INNERSEP? ')' ;
 
 conjunction		:	'(' OUTERSEP? logic
                         ((OUTERSEP|INNERSEP)? logic)*

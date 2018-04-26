@@ -16,6 +16,9 @@ class TestAACListener(CAAListener):
 
     def enterMessage(self, ctx):
         print("From: {}".format(ctx.messageto().getText()))
+    
+    def enterComparison(self, ctx):
+        print("Filter: {}".format([l.getText() for l in ctx.symbol()]))
 
 if __name__ == '__main__':
     instream = InputStream(
@@ -24,6 +27,9 @@ if __name__ == '__main__':
                 (
                     logic(?x ?y ?z)
                     logic(?s ?f ?h)
+                )
+                (
+                    filter(?x == ?z) filter(?d != ?y)
                 )
                 (
                     ~(logic(A B C) logic(A B C))
@@ -40,6 +46,10 @@ if __name__ == '__main__':
                 (
                     logic(?x ?y ?z)
                     logic(?s ?f ?h)
+                )
+                (
+                    filter(?x == ?z)
+                    filter(?d != ?y)
                 )
                 (
                     ~(logic(A B C) logic(A B C))
